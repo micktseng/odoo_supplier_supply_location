@@ -7,9 +7,9 @@
             <field name="model">product.supplierinfo</field>
             <field name="inherit_id" ref="product.product_supplierinfo_form_view"/>
             <field name="arch" type="xml">
-                <field name="delay" position="before">
+                <xpath expr="//field[@name='product_id']" position="after">
                     <field name="location_id"/>
-                </field>
+                </xpath>
             </field>
         </record>
 
@@ -18,7 +18,7 @@
             <field name="model">product.supplierinfo</field>
             <field name="inherit_id" ref="product.product_supplierinfo_tree_view"/>
             <field name="arch" type="xml">
-                <field name="seller_id" position="after">
+                <field name="product_tmpl_id" position="after">
                     <field name="location_id"/>
                 </field>
             </field>
