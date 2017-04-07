@@ -1,0 +1,13 @@
+{'name': 'Product Supplier Location',
+ 'summary': '',
+ 'version': '8.0.0.0.0',
+ 'author': "Mick Truney Inc.",
+ 'category': 'Purchase Management',
+ 'license': 'AGPL-3',
+ 'depends': ['sale_stock',
+             'purchase',
+             ],
+ 'data': ['product_supplierinfo.xml'],
+ 'auto_install': False,
+ 'installable': True,
+ }

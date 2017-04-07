@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+  <data>
+
+    <record id="product_supplierinfo_location_form_view_inherit" model="ir.ui.view">
+      <field name="name">product.supplierinfo.location.form.view</field>
+      <field name="model">product.supplierinfo</field>
+      <field name="inherit_id" ref="product.product_supplierinfo_form_view"/>
+      <field name="arch" type="xml">
+        <field name="min_qty" position="after">
+          <field name="location_id"/>
+        </field>
+      </field>
+    </record>
+
+    <record id="product_supplierinfo_location_tree_view_inherit" model="ir.ui.view">
+      <field name="name">product.supplierinfo.location.tree.view</field>
+      <field name="model">product.supplierinfo</field>
+      <field name="inherit_id" ref="product.product_supplierinfo_tree_view"/>
+      <field name="arch" type="xml">
+        <field name="delay" position="before">
+          <field name="location_id"/>
+        </field>
+      </field>
+    </record>
+
+  </data>
+</openerp>
