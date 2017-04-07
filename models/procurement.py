@@ -11,8 +11,10 @@ class ProcurementOrder(models.Model):
         for procurement in self:
             # TDE FIXME: 還不會修改seller_ids而不進行資料儲存，只好先把整個make_po(self)複製過來修改
             suppliers = procurement.product_id.seller_ids.filtered(
-                lambda r: not r.product_id or r.product_id == procurement.product_id()).filtered(
-                lambda r: r.location_id == procurement.location_id)
+                lambda r: not r.product_id or r.product_id == procurement.product_id())
+            if suppliers.filtered( lambda r: r.location_id):
+                suppliers = suppliers.filtered(
+                    lambda r: r.location_id == procurement.location_id)
             if not suppliers:
                 procurement.message_post(
                     body=_('No vendor associated to product %s. Please set one to fix this procurement.') % (
