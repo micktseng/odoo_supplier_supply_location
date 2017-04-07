@@ -1,2 +1,2 @@
-from . import product_supplierinfo
+from . import supplierinfo
 from . import procurement
