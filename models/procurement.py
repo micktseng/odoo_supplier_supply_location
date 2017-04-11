@@ -4,7 +4,6 @@ from odoo import models, api, _
 class ProcurementOrder(models.Model):
     _inherit = 'procurement.order'
 
-    # TDE FIXME: 無法產生正確會計分路
     @api.multi
     def make_po(self):
         res = []
@@ -17,8 +16,10 @@ class ProcurementOrder(models.Model):
                 })
 
                 procurement.product_id.refresh()
-                res += super(ProcurementOrder, procurement).make_po()
-                todo_suppliers.unlink()
+                try:
+                    res += super(ProcurementOrder, procurement).make_po()
+                finally:
+                    todo_suppliers.unlink()
             else:
                 res += super(ProcurementOrder, procurement).make_po()
 
