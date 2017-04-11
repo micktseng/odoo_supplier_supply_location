@@ -22,6 +22,4 @@ class ProcurementOrder(models.Model):
                     todo_suppliers.unlink()
             else:
                 res += super(ProcurementOrder, procurement).make_po()
-
-
         return res
